@@ -24,7 +24,7 @@ const flash = require('connect-flash');
 const cart = require('./models/cart');
 const itemdelete = require('./utils/orderdelete');
 const fs = require('fs');
-const MongoStore = require('connect-mongo');
+// const MongoStore = require('connect-mongo');
 
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
@@ -34,7 +34,7 @@ app.set('views',path.join(__dirname,'views'));
 
 const sessionConfig = {
     secret:'holllla',
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongodb.net/?retryWrites=true&w=majority' }),
+    // store: MongoStore.create({ mongoUrl: 'mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongodb.net/?retryWrites=true&w=majority' }),
     resave:false,
     saveUninitialized:true,
     cookie:{
