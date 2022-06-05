@@ -1,0 +1,80 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">ADD Blog</h1>
+        </div>
+      </div>
+ 
+    <form action="/blog" method = "POST" novalidate class="addbgadmin">
+
+        <div class="mb-3">
+            <label class="form-label"  for="title">TITLE</label>
+            <input class="form-control" type="text" id="title" name="blogs[title]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label"  for="title">Image1</label>
+            <input class="form-control" type="text" id="title" name="blogs[image1]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div><div class="mb-3">
+            <label class="form-label"  for="title">Image2</label>
+            <input class="form-control" type="text" id="title" name="blogs[image2]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div><div class="mb-3">
+            <label class="form-label"  for="title">Image3</label>
+            <input class="form-control" type="text" id="title" name="blogs[image3]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label" for="description">Short Description</label>
+            <textarea class="form-control" required type="text" id="description" name="blogs[description]"></textarea> 
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Para 1</label>
+            <textarea class="form-control" required type="text" id="description" name="blogs[para1]"></textarea> 
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div><div class="mb-3">
+            <label class="form-label" for="description">Para 2</label>
+            <textarea class="form-control" required type="text" id="description" name="blogs[para2]"></textarea> 
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div><div class="mb-3">
+            <label class="form-label" for="description">Para 3</label>
+            <textarea class="form-control" required type="text" id="description" name="blogs[para3]"></textarea> 
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+             <button class="btn btn-success">Add Blog</button>
+    
+        </div>
+        
+    </form>
+</div>

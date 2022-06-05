@@ -1,0 +1,99 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="deliverybg">
+    <div class="mt-5">
+        <div class="marcon">
+            <h1 class="mar califont" style="font-size: 4rem;">Order Now</h1>
+            
+            <!-- <div class="top"></div>
+            <div class="right"></div>
+            <div class="left"></div>
+            <div class="bot"></div> -->
+      
+        </div>
+        
+        
+      </div>
+<div class="ordercon">
+<div class="con">
+    <div class="totamt">
+        <p>Total:</p>
+        <p><%=total%></p>
+    </div>
+
+<form action="/order/confirm/" method = "POST" novalidate class="validated-form emptyform">
+
+<div class="delivery">
+    <div class="mb-3">
+        <label class="form-label"  for="title">Name</label>
+        <input class="form-control" type="text" id="name" name="order[name]" required>
+        <div class="valid-feedback">
+            Looks Good
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label"  for="title">Mobile Number</label>
+        <input class="form-control" type="number" id="mobnumber" name="order[number]" required>
+        <div class="valid-feedback">
+            Looks Good
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label"  for="title">Email</label>
+        <input class="form-control" type="email" id="email" name="order[mail]" required>
+        <div class="valid-feedback">
+            Looks Good
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="description">Address</label>
+        <textarea class="form-control" required type="text" id="address" name="order[address]"></textarea> 
+        <div class="valid-feedback">
+            Looks Good
+        </div>
+    </div>
+    <% if(num>1){%>
+    <%for (let p of paintings){%>
+        <input  type="text" value="<%=p.title%>" id="email" name="title"  hidden>
+        <input  type="text" value="<%=p.original%>" id="email" name="original"  hidden>
+        <input  type="text" value="<%=p.prints%>" id="email" name="prints"  hidden>
+        <%if(p.original==1){%>
+        <%if(currency==1){%>
+            <input  type="number" value="<%=p.priceo%>" id="price" name="price"  hidden>
+        <%}else{%>
+            <input  type="number" value="<%=p.dolpriceo%>" id="price" name="price"  hidden>
+        <%}%>
+        <%}else{%>
+            <%if(currency==1){%>
+                <input  type="number" value="<%=p.pricec%>" id="price" name="price"  hidden>
+            <%}else{%>
+                <input  type="number" value="<%=p.dolpricec%>" id="price" name="price"  hidden>
+            <%}%>
+        <%}%>
+    <%}%>
+    <%}else{%>
+        <input  type="text" value="<%=paintings.title%>" id="title" name="title"  hidden>
+        <input  type="text" value="<%=paintings.original%>" id="original" name="original"  hidden>
+        <input  type="text" value="<%=paintings.prints%>" id="prints" name="prints"  hidden>
+        <%if(paintings.original==1){%>
+            <%if(currency==1){%>
+                <input  type="number" value="<%=paintings.piceo%>" id="price" name="price"  hidden>
+            <%}else{%>
+                <input  type="number" value="<%=paintings.dolpriceo%>" id="price" name="price"  hidden>
+            <%}%>
+            <%}else{%>
+                <%if(currency==1){%>
+                    <input  type="number" value="<%=paintings.pricec%>" id="price" name="price"  hidden>
+                <%}else{%>
+                    <input  type="number" value="<%=paintings.dolpricec%>" id="price" name="price"  hidden>
+                <%}%>
+            <%}%>
+    
+    <%}%>
+
+</div>
+<button type="submit" class="btn btn-success">Place Order</button>
+
+</form>
+</div>
+</div>
+</div>

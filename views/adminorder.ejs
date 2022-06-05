@@ -1,0 +1,123 @@
+<% layout('layouts/boilerplate')%>
+
+    <div id="wrapper" class="adminpannel adminbg">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 style="font-size: 4rem;" class="mar califont">Orders</h1>
+            </div>
+          </div>
+          <div class="orderpannel">
+              <div id="adminallorderbtn">Completed Orders</div>
+              <div id="adminneworderbtn">New Orders</div>
+              <div id="pendingorderbtn">Pending Orders</div>
+              <form action="/admin/searchorder" method = "POST" novalidate class="validated-form  addbgadmin">
+                 <label class="form-label"  for="title">Search(Enter Name)</label>   
+                <input class="form-control" type="text" id="title" name="name" required> 
+                <button type="submit" class="btn btn-success">Search</button>
+             </form>
+          </div>
+          <div class="adminorderdis" id="adminneworders">
+            <h1>NEW ORDERS</h1>
+
+              <%for(o of neworders){%>
+                <div class="orderdet">
+                    <h3><%=o.date%></h3>
+                    <h3>Order ID : <%=o._id%></h3>
+                    <h3>Name : <%=o.name%></h3>
+                    <div>
+                    <h3>Total</h3>
+                    <h3><%=o.total%></h3>
+                    </div>
+                    <form action="/admin/view" method = "POST" novalidate class="validated-form  addbgadmin">
+                        <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+                        <button class="btn btn-success">View</button>
+                    </form>
+                    <form action="/admin/orderstatus" method = "POST" novalidate class="validated-form  addbgadmin">
+                        <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+                        <button class="btn btn-success">Move to completed</button>
+                    </form>
+                    <form action="/admin/orderstatuspending" method = "POST" novalidate class="validated-form  addbgadmin">
+                        <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+                        <button class="btn btn-success">Move to pending</button>
+                    </form>
+                </div>
+                <%}%>
+          </div>
+          <div class="adminorderdis" id="adminallorders">
+              <h1>Completed Orders</h1>
+            <%for(o of completedorders){%>
+              <div class="orderdet">
+                  <h3><%=o.date%></h3>
+                  <h3>Order ID : <%=o._id%></h3>
+                  <h3>Name : <%=o.name%></h3>
+                  <div>
+                  <h3>Total</h3>
+                  <h3><%=o.total%></h3>
+                  </div>
+                  <form action="/admin/view" method = "POST" novalidate class="validated-form  addbgadmin">
+                        <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+
+                        <button class="btn btn-success">View</button>
+                  </form>      
+              </div>
+              <%}%>
+        </div>
+        <div class="adminorderdis" id="pendingorders">
+            <h1>Pending Orders</h1>
+          <%for(o of pendingorders){%>
+            <div class="orderdet">
+                <h3><%=o.date%></h3>
+                <h3>Order ID : <%=o._id%></h3>
+                <h3>Name : <%=o.name%></h3>
+                <div>
+                <h3>Total</h3>
+                <h3><%=o.total%></h3>
+                </div>
+                <form action="/admin/view" method = "POST" novalidate class="validated-form  addbgadmin">
+                      <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+
+                      <button class="btn btn-success">View</button>
+                </form>      
+                <form action="/admin/orderstatus" method = "POST" novalidate class="validated-form  addbgadmin">
+                      <input class="form-control" type="text" id="title" value="<%=o._id%>" name="id" hidden>
+
+                      <button class="btn btn-success">Move to comleted</button>
+                </form>     
+            </div>
+            <%}%>
+      </div>
+    </div>
+    <script>
+        const neworderbtn =  document.getElementById("adminneworderbtn");
+        const allorderbtn =  document.getElementById("adminallorderbtn");
+        const pendingorderbtn =  document.getElementById("pendingorderbtn");
+
+        const neworder =  document.getElementById("adminneworders");
+        const allorder =  document.getElementById("adminallorders");
+        const pendingorder =  document.getElementById("pendingorders");
+
+
+        neworderbtn.onclick = function() {showneworder()};
+        function showneworder(){
+        
+            neworder.style.display="block";
+            allorder.style.display="none";
+            pendingorder.style.display="none";
+        }
+        allorderbtn.onclick = function() {showallorder()};
+        function showallorder(){
+    
+            allorder.style.display="block";
+            neworder.style.display="none";
+            pendingorder.style.display="none";
+        }
+        
+        pendingorderbtn.onclick = function() {showpendingorder()};
+        function showpendingorder(){
+            console.log("All");
+            allorder.style.display="none";
+            neworder.style.display="none";
+            pendingorder.style.display="block";
+        }
+    </script>

@@ -1,0 +1,112 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="blogbg">
+
+  <div class="mt-5">
+    
+    <div class="marcon bgmar">
+        <h1  class="mar califont">Hiver's Blogs</h1>
+        
+    </div>
+  </div>
+  <div class="con">
+    <% for(let count=0;count<bsize;count++){ %>
+    <%if(count%2==0){%>
+      <div class="bg">
+        <div class="bgl">
+          <img src="<%=b[count].image1%>" alt="">
+        </div>
+        <div class="bgr">
+          <div class="bginfo">
+         
+  
+            <p>
+              
+              <%=b[count].date%>
+           </p>
+            <h3 class="califont">
+              <%=b[count].title%>
+            </h3>
+            
+          </div>
+            <p><%=b[count].description%></p>
+            <button class="readbg"><a href="/showblog/<%=b[count]._id%>/">Continue Reading</a></button>
+        </div>
+      </div>
+    <%}else{%>
+    <div class="bg">
+      <div class="bgr bglcount">
+        <div class="bginfo">
+       
+
+          <p>
+            
+            <%=b[count].date%>
+         </p>
+          <h3 class="califont">
+            <%=b[count].title%>
+          </h3>
+          
+        </div>
+          <p><%=b[count].description%></p>
+          <button class="readbg"><a href="/showblog/<%=b[count]._id%>/">Continue Reading</a></button>
+
+      </div>
+      
+      <div class="bgl">
+        <img src="<%=b[count].image1%>" alt="">
+      </div>
+      
+    </div>
+    <%}%>
+    <%}%>
+  </div>
+<div class="pages bigpag">
+    <%if((curpage)==2){%>
+      
+      <a href="/blog"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      <p>1</p>
+    <%}else{%>
+
+      <a href="/blog/<%=prevblog._id%>/"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      <p><%=curpage-1%></p>
+      <%}%>
+    <h4><%=curpage%></h4>
+    <%if((curpage)<pages){%>
+      <p><%=curpage+1%></p>
+    <a href="/blog/<%=b[3]._id%>/"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    <%}%>
+</div>
+
+</div>
+
+<!-- 
+
+    <div class="gallery bloggal">
+        <div class="con">
+       
+
+             
+              <div class="blogcon">
+                <div class="blogleft">
+                  <img src="egypt_bg.jpg" alt="">
+                </div>
+                <div class="blogright">
+                  <div class="card">
+                 
+                    <div class="card-body">
+                      <div class="card-footer">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+              </div>
+              
+        
+
+              
+        </div>
+        
+    </div>
+</div> -->

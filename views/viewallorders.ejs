@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="viewodbg">
+    <div class="con">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 style="font-size: 4rem;" class="mar califont">View Order</h1>
+            </div>
+          </div>
+        <%if(size==0){%>
+            <div class=" noord orderdet">
+                <h3>No Orders are made with this Number.</h3>
+                <a href="/showcase">Go Shop</a>
+            </div>
+         <%}else{%>
+            <%for(let o of orders){%>
+                <div class="orderdet">
+                    <p><%=o.date%></p>
+                    <p><%=o.name%></p>
+                    <p><%=o.total%></p>
+                    <a href="/order/confirm/<%=o._id%>">View</a>
+                </div>
+            <%}%>
+            <%}%>
+        
+    </div>
+    
+</div>

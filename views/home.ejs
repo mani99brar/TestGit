@@ -1,0 +1,444 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="catch">
+    <div class="con">
+        <div class="name">
+            <!-- <div class="paintbrush">
+                <img src="paintbrush2.png" alt="">
+            </div> -->
+                <div class="tagline califont">
+                    <h3>Hiver Arts</h3>
+                     <h5>Welcome</h5>
+                     <div class="tagbox">
+
+                    </div>
+       
+                </div>
+                
+             </div>
+    </div>
+    
+    <img class="pchead" src="<%=pcbg.bg1%>" alt="">
+    <img class="mobhead" src="<%=mobbg.bg1%>" alt="">
+    
+</div>
+<div id="showcase" class="showcase pcshow">
+    <!-- <div class="bg"><img src="JOSHI/bg_1.jpg" alt=""></div> -->
+    
+    <a id="showcasehead" class="califont" href="/showcase">SHOWCASE</a>
+    <div class="para" style="background: url('<%=pcbg.bg2%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+
+        <div class="con padcon">
+            
+            <div class="left" id="showleft">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="<%=pcbg.sbg1%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Uniquie And Creatvie Art Pieces!</h5>
+                          <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="<%=pcbg.sbg2%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Delivery available throughtout India.</h5>
+                          <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="<%=pcbg.sbg3%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Custom request accepted!</h5>
+                          <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            
+            <div class="outer" id="showright">
+               
+                <%for (painting of paintings){%>
+                <div class="one">
+                    <!-- <div class="cover"></div> -->
+                    <img src="<%=painting.image1%>" alt="">
+                    
+                    
+                    
+                </div>
+                <%}%>
+                <div class="showcasemid">
+                    <div>
+                        <p>Uniquie And Creatvie Art Pieces!</p>
+                    </div>
+                   
+                    <div>
+                        <p>Custom request accepted!</p>
+                    </div>
+                </div>
+               
+            
+            </div>
+            <div class="gallerholder">
+                <a class=" califont" href="/showcase">
+                    SHOP NOW
+                </a>
+            </div>
+         
+    </div>
+      
+    </div>
+</div>
+<div id="showcase" class="showcase mobshow" >
+    <!-- <div class="bg"><img src="JOSHI/bg_1.jpg" alt=""></div> -->
+    
+    <a id="showcasehead" class="califont" href="/showcase">SHOWCASE</a>
+    <div class="para" style="background: url('<%=mobbg.bg2%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+
+        <div class="con padcon">
+            
+            <div class="left" id="showleft">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="<%=mobbg.sg1%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Uniquie And Creatvie Art Pieces!</h5>
+                          <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="<%=mobbg.sg2%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Delivery available throughtout India.</h5>
+                          <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="<%=mobbg.sg3%>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>Custom request accepted!</h5>
+                          <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            
+            <div class="outer" id="showright">
+               
+                <%for (painting of paintings){%>
+                <div class="one">
+                    <!-- <div class="cover"></div> -->
+                    <img src="<%=painting.image1%>" alt="">
+                    
+                    
+                    
+                </div>
+                <%}%>
+                <div class="showcasemid">
+                    <div>
+                        <p>Uniquie And Creatvie Art Pieces!</p>
+                    </div>
+                   
+                    <div>
+                        <p>Custom request accepted!</p>
+                    </div>
+                </div>
+               
+            
+            </div>
+            <div class="gallerholder">
+                <a class=" califont" href="/showcase">
+                    SHOP NOW
+                </a>
+            </div>
+         
+    </div>
+      
+    </div>
+</div>
+<div class="blog pcblog">
+    <a id="bloghead" class="califont" href="/blog">BLOGS</a>
+
+    <div class="para" style="background: url('<%=pcbg.bg3%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+        <div class="opac"></div>
+        <div class="con padcon">
+        
+           
+            <div class="left">
+                <% for(let blog of a){ %>
+
+                <h3 class="califont"><%=blog.title%></h3> 
+                <p><%=blog.description%> <br> <br> <%=blog.date%></p>
+                
+                
+                
+            </div>
+            <div class="right">
+                <section>
+                    <img src="<%=blog.image1%>" alt="">
+
+                </section>
+                <div class="allblogs">
+                    <a class="califont" href="/blog">View All</a>
+
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    
+</div>
+ <div class="blog mobblog">
+    <a id="bloghead" class="califont" href="/blog">BLOGS</a>
+
+    <div class="para" style="background: url('<%=mobbg.bg3%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+        <div class="opac"></div>
+        <div class="con padcon">
+        
+           
+            <div class="left">
+                <% for(let blog of a){ %>
+
+                <h3 class="califont"><%=blog.title%></h3> 
+                <p><%=blog.description%> <br> <br> <%=blog.date%></p>
+                
+                
+                
+            </div>
+            <div class="right">
+                <section>
+                    <img src="<%=blog.image1%>" alt="">
+
+                </section>
+                <div class="allblogs">
+                    <a class="califont" href="/blog">View All</a>
+
+                </div>
+                
+            </div>
+            <%}%>
+        </div>
+    </div>
+    
+</div>
+<div id="about" class="about pcabout">
+    <a class=" califont" id="abouthead">About
+    </a>
+    <div class="para" style="background: url('<%=pcbg.bg4%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+        <div class="con">
+            
+            <div class="top top1">
+                
+                <div class="left">
+                  
+                    <div class="aboutrighttop">
+                        <h3>Know the Artist</h3>
+                        <p>Rupali (born 1998) is an Indian Visual Artist with a keen interest in variegated art forms, their history and the gensis of art and the imminent evolutions in the periscope.
+                            This passion and unending interest kickstarted her endeavours in the realm of visual art. Her art is vibrant which encapsulates flow of colors, divine rhythm and human feelings. While examining the end-product of her artistic creativity, one can unquestionably acknowledge and appreciate the aesthetics bestowed by the artwork.</p>
+                    </div>
+                </div>    
+            </div> 
+            <div class="right" id="aboutleft">
+                <img src="<%=myimg.img%>" alt="">
+                <p class=" califont">Rupali Joshi</p>
+            </div>
+            <div class="top top2">
+                <div class="leftbottom">       
+                    <div class="aboutrighttop">
+
+                        <p>Rupali's work is mostly lucid and cognitive with major focus on emotions, expressions and vividness. She completed her Diploma from Kanoria College and is currently pursuing Master's in Fine Arts with an emphasis on Drawing and Painting from Jaipur, Rajasthan; India.</p>
+                    </div>    
+                  
+                    
+                    </div>
+            </div>
+            <div class="top top2">
+                <div class="leftbottom">          
+                  
+                    <div class="aboutrighttop">
+
+                        <p>In addition to her passion, she is also hugely concerned with the inspiration she will be able to bestow upon people through her dynamic and vibrant artwork.</p><p>— It would be an understatement to claim that she loves her work and is an epitome of creativity.</p>
+                    </div>    
+                    </div>
+            </div>
+            <%for(let i=0;i<abtsize;i++){%>
+                <div class="top top2">
+                    <div class="leftbottom">          
+                      
+                        <div class="aboutrighttop">
+    
+                            <p><%=abt[i].para%></p>
+                        </div>    
+                        </div>
+                </div>
+            <%}%>    
+            <!-- <div class="linkcon">
+                <a href="#">Know More!</a>
+
+            </div> -->
+
+        </div>
+    </div>
+    
+</div>
+<div id="about" class="about mobabout">
+    <a class=" califont" id="abouthead">About
+    </a>
+    <div class="para" style="background: url('<%=mobbg.bg4%>') no-repeat center; background-size: cover; background-attachment: fixed;">
+        <div class="con">
+            
+            <div class="top top1">
+                
+                <div class="left">
+                  
+                    <div class="aboutrighttop">
+                        <h3>Know the Artist</h3>
+                        <p>Rupali (born 1998) is an Indian Visual Artist with a keen interest in variegated art forms, their history and the gensis of art and the imminent evolutions in the periscope.
+                            This passion and unending interest kickstarted her endeavours in the realm of visual art. Her art is vibrant which encapsulates flow of colors, divine rhythm and human feelings. While examining the end-product of her artistic creativity, one can unquestionably acknowledge and appreciate the aesthetics bestowed by the artwork.</p>
+                    </div>
+                </div>    
+            </div> 
+            <div class="right" id="aboutleft">
+                <img src="<%=myimg.img%>" alt="">
+                <p class=" califont">Rupali Joshi</p>
+            </div>
+            <div class="top top2">
+                <div class="leftbottom">       
+                    <div class="aboutrighttop">
+
+                        <p>Rupali's work is mostly lucid and cognitive with major focus on emotions, expressions and vividness. She completed her Diploma from Kanoria College and is currently pursuing Master's in Fine Arts with an emphasis on Drawing and Painting from Jaipur, Rajasthan; India.</p>
+                    </div>    
+                  
+                    
+                    </div>
+            </div>
+            <div class="top top2">
+                <div class="leftbottom">          
+                  
+                    <div class="aboutrighttop">
+
+                        <p>In addition to her passion, she is also hugely concerned with the inspiration she will be able to bestow upon people through her dynamic and vibrant artwork.</p><p>— It would be an understatement to claim that she loves her work and is an epitome of creativity.</p>
+                    </div>    
+                    </div>
+            </div><%for(let i=0;i<abtsize;i++){%>
+                <div class="top top2">
+                    <div class="leftbottom">          
+                      
+                        <div class="aboutrighttop">
+    
+                            <p><%=abt[i].para%></p>
+                        </div>    
+                        </div>
+                </div>
+            <%}%>   
+            <!-- <div class="linkcon">
+                <a href="#">Know More!</a>
+
+            </div> -->
+
+        </div>
+    </div>
+    
+</div>
+<div id="socials" class="support">
+    <div class="con">
+        <div class="icons">
+           
+                <div class="iconflex">
+                    <div class="iconancont">
+                        <a href=""><i class="fab fa-facebook-f"></i></a> 
+                        <div class="top"></div>
+                        <div class="bottom"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>				    
+                </div>
+
+            
+            <div class="iconflex">
+                <div class="iconancont">
+                    <a href=""><i class="fab fa-youtube"></i></a>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                
+            </div>
+            <div class="iconflex">
+                <div class="iconancont">
+
+                    <a href=""><i class="fab fa-pinterest-p"></i></a>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>				
+                
+            </div>
+            <div class="iconflex">
+                <div class="iconancont">
+                    <a href="https://www.instagram.com/__hiver._/?hl=en"><i class="fab fa-instagram"></i></a>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+                
+            </div>
+            
+            <!-- 
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i> -->
+
+        </div>
+    </div>
+</div>
+<div class="contact">
+    <div class="con">
+        <h1>Get in Touch</h1>
+            <p>Feel free to contact me</p>
+            <form action="/adminqueries" method = "POST" novalidate class="validated-form form  addbgadmin">
+
+                <input class="form-control" type="text" placeholder="Name" name="query[name]" required>
+                <input class="form-control" type="email" placeholder="Email" name="query[mail]" required>
+                <input class="l form-control" type="text" placeholder="Subject" name="query[subject]" required>
+                <textarea class="form-control" placeholder="Message" name="query[message]"  required></textarea>
+                  <button type="submit">Send Message</button>
+                    
+                </form>
+    </div>
+</div>
+

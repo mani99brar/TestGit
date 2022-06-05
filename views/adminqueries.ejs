@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper">
+    <div class="adminpannel adminbg">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 style="font-size: 4rem;" class="mar califont">Queries</h1>
+            </div>
+          </div>
+        <div class="queries">
+            <%for(a of q){%>
+                <div class="query">
+                    <h3>Subject : <%=a.subject%></h3>
+                    <h5>Name : <%=a.name%></h5>
+                    <h5>Email: <%=a.mail%></h5>
+                    <p>Message: <%=a.message%></p>
+                    <form action="/deletequery" method = "POST">
+                        <input type="text" name="id" value="<%=a._id%>" hidden>
+                        <button type="submit" class="btn btn-success">Delete</button>
+                    </form>
+                </div>
+                
+            <%}%>
+        </div>
+    </div>
+</div>
+    

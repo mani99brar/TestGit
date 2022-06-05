@@ -1,0 +1,22 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="viewodbg">
+    <div class="con">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 class="mar califont">View Order</h1>
+            </div>
+          </div>
+        <form action="/searchorder" method = "POST" novalidate class="validated-form">
+            
+            <div class="mb-3">
+                <label class="form-label"  for="title">Enter Mobile Number</label>
+                <input class="form-control"  type="number" id="title" name="number" required>
+            </div>
+            <section>
+                <button type="submit" class="addbutt viewodbgbt ">Search</button>
+            </section>
+        </form>
+    </div>
+    
+</div>

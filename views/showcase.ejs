@@ -1,0 +1,157 @@
+<% layout('layouts/boilerplate')%>
+
+<div id="wrapper" class="showcase2">
+    
+            <div class="mt-5">
+                <div class="marcon">
+                    <h1 class="mar califont">Hiver's Gallery</h1>
+                    <!-- <div class="changecol">
+                        
+                    </div> -->
+                    <!-- <div class="top"></div>
+                    <div class="right"></div>
+                    <div class="left"></div>
+                    <div class="bot"></div> -->
+        
+                </div>
+                
+                
+            </div>
+            <div class="filter">
+                <div id="btnor">
+                    <h3 class="califont">
+                        Originals
+                    </h3>
+                </div>
+                <div id="btnall">
+                    <h3 class="califont">All</h3>
+                </div>
+                
+                <div id="btnpr">
+                    <h3 class="califont">
+                        Prints
+                    </h3>
+                </div>
+            </div>
+
+        
+
+    
+
+    <div class="gallery" id="viewall">
+        <div class="con">
+            <% for(let painting of paintings){ %>
+                <div class="box">
+                    <div class="card showcard">
+                        <img src="<%=painting.image1%>" class="card-img-top" alt="...">
+                        <div class="card-body ">
+                          <h3 class="card-title califont"><%=painting.title%></h3>
+                          <h5 class="card-title"><%=painting.price%></h5>
+
+                          <p class="card-text"><%=painting.description%></p>
+                          <%if(painting.original>=0){%>
+                          <a href="/showcase/<%=painting._id%>">View</a>
+                          <%}else{%>
+                            <p>SOLD OUT</p>
+                          <%}%>  
+                        </div>
+                    </div>
+                    
+                </div>
+              <% }%>
+        </div>
+        
+    </div>
+    <div class="gallery" id="viewor">
+        <div class="con">
+            <% for(let painting of paintings){ %>
+                <%if(painting.copy==0){%>
+                <div class="box">
+                    <div class="card showcard">
+                        <img src="<%=painting.image1%>" class="card-img-top" alt="...">
+                        <div class="card-body ">
+                          <h3 class=" califont card-title"><%=painting.title%></h3>
+                          <h5 class="card-title"><%=painting.price%></h5>
+
+                          <p class="card-text"><%=painting.description%></p>
+                          <%if(painting.original>=0){%>
+                            <a href="/showcase/<%=painting._id%>">View</a>
+                            <%}else{%>
+                              <p>SOLD OUT</p>
+                            <%}%>
+                        </div>
+                    </div>
+                    
+                </div>
+                <%}%>
+              <% }%>
+        </div>
+        
+    </div>
+    <div class="gallery" id="viewpr">
+        <div class="con">
+            <% for(let painting of paintings){ %>
+                <%if(painting.copy==1){%>
+                <div class="box">
+                    <div class="card showcard">
+                        <img src="<%=painting.image1%>" class="card-img-top" alt="...">
+                        <div class="card-body ">
+                          <h3 class="card-title califont"><%=painting.title%></h3>
+                          <h5 class="card-title"><%=painting.price%></h5>
+
+                          <p class="card-text"><%=painting.description%></p>
+                          <%if(painting.original>=0){%>
+                            <a href="/showcase/<%=painting._id%>">View</a>
+                            <%}else{%>
+                              <p>SOLD OUT</p>
+                            <%}%>
+                        </div>
+                    </div>
+                    
+                </div>
+              <% }%>
+
+              <% }%>
+        </div>
+        
+    </div>
+</div>
+<script>
+    
+const btnor =  document.getElementById("btnor");
+const btnall =  document.getElementById("btnall");
+const btnpr =  document.getElementById("btnpr");
+const viewor =  document.getElementById("viewor");
+const viewall =  document.getElementById("viewall");
+const viewpr =  document.getElementById("viewpr");
+btnor.onclick = function() {showor()};
+btnall.onclick = function() {showall()};
+btnpr.onclick = function() {showpr()};
+
+
+function showor() {
+    btnor.style.color="#555";
+    btnall.style.color="#fff";
+    btnpr.style.color="#fff";
+    viewor.style.display="block";
+    viewall.style.display="none";
+    viewpr.style.display="none";
+}
+function showpr() {
+    btnpr.style.color="#555";
+    btnall.style.color="#fff";
+    btnor.style.color="#fff";
+    viewor.style.display="none";
+    viewall.style.display="none";
+    viewpr.style.display="block";
+}
+function showall() {
+    btnall.style.color="#555";
+    btnor.style.color="#fff";
+    btnpr.style.color="#fff";
+    viewor.style.display="none";
+    viewall.style.display="block";
+    viewpr.style.display="none";
+}
+</script>
+

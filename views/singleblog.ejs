@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="singleblogbg">
+    <div class="mt-5">
+      <div class="marcon bgmar">
+          <h1  class="mar califont">Hiver's Blogs</h1>
+      </div>
+ </div>
+ <div class="con singlebgshow">
+    <div class="singlebg">
+        <p>
+          <%=curblog.date%>
+       </p>
+        <h1  class="califont">
+          <%=curblog.title%>
+        </h1>
+      </div>
+      <div class="singleimg">    
+        <img src="<%=curblog.image1%>" alt="">     
+      </div>
+      <div class="singledesc">
+          <p>
+              <%=curblog.para1%>
+          </p>
+      </div>
+      <div class="singleimg">    
+        <img src="<%=curblog.image2%>" alt="">     
+      </div>
+      <div class="singledesc">
+        <p>
+            <%=curblog.para2%>
+        </p>
+    </div>
+    <div class="singleimg">    
+      <img src="<%=curblog.image3%>" alt="">     
+    </div>
+    <div class="singledesc">
+      <p>
+          <%=curblog.para3%>
+      </p>
+  </div>
+ </div>
+ </div>
+
+  

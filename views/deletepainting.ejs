@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">Delete Painting</h1>
+        </div>
+      </div>
+    <form action="/painting/delete" method = "POST" novalidate class="validated-form ">
+        
+        <div class="mb-3">
+            <label class="form-label"  for="title">Enter Name</label>
+            <input class="form-control" type="text" id="title" name="name" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <button class="btn btn-success">Delete</button>
+    </form>
+ 
+</div>

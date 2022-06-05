@@ -1,0 +1,109 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">Add Painting</h1>
+        </div>
+      </div>
+        <form action="/showcase" method = "POST" novalidate class="validated-form  addbgadmin">
+
+            <div class="mb-3">
+                <label class="form-label"  for="title">TITLE</label>
+                <input class="form-control" type="text" id="title" name="product[title]" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image1" name="product[image1]" required>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image2" name="product[image2]" required>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image3" name="product[image3]" required>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image0">Original Price</label>
+        
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">Rs</span>
+                    <input type="text" class="form-control" id="priceo" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[priceo]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image0">Original Price</label>
+        
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">USD</span>
+                    <input type="text" class="form-control" id="dolpriceo" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[dolpriceo]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="image0">Print Price</label>
+        
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">Rs</span>
+                    <input type="text" class="form-control" id="pricec" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[pricec]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image0">Prints Price</label>
+        
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">USD</span>
+                    <input type="text" class="form-control" id="dolpriceo" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[dolpricec]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image0">Print Available(if yes enter 1)</label>
+        
+                <div class="input-group">
+                    <input type="text" class="form-control" id="pricec" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[copy]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            <input type="text" class="form-control" id="pricec" value="0" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[original]" hidden>
+            <input type="text" class="form-control" id="pricec" value="0" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[prints]" hidden>
+            
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" required type="text" id="description" name="product[description]"></textarea> 
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                 <button class="btn btn-success">Add Product</button>
+        
+            </div>
+            
+        </form>
+    </div>
+    

@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">Delete Blog</h1>
+        </div>
+      </div>
+    <form action="/blog/delete" method = "POST" novalidate class="validated-form ">
+        
+        <div class="mb-3">
+            <label class="form-label"  for="title">Enter Date</label>
+            <input class="form-control" type="date" id="title" name="date" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <button class="btn btn-success">Search</button>
+    </form>
+ 
+</div>

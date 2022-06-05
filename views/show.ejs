@@ -1,0 +1,277 @@
+<% layout('layouts/boilerplate')%>
+
+<div id="wrapper" class="showbg">
+    <div class="con showcon">
+        <div class="showleft">
+            
+            <div class="showimg" id="timg1">
+                <img src="<%=painting.image1%>"  alt="...">
+
+             </div>
+             <div class="showimg" id="timg2">
+                <img src="<%=painting.image2%>"  alt="...">
+
+             </div>
+             <div class="showimg" id="timg3">
+                <img src="<%=painting.image3%>"  alt="...">
+
+             </div>
+             <div class="imgbar">
+                <div id="bimg1">
+                    <img src="<%=painting.image1%>"  alt="...">
+
+                </div>
+                <div id="bimg2">
+                    <img src="<%=painting.image2%>"  alt="...">
+
+                </div>
+                <div id="bimg3">
+                    <img src="<%=painting.image3%>"  alt="...">
+
+                </div>
+          
+            </div>   
+             
+
+        </div>
+        <div class="showright">
+            <div class="imgdata">
+                <div class="showdata">
+                    <h1 class="imghead califont"><%=painting.title%></h1>
+                    <h4><%=painting.description%></h4>
+                </div>
+                <div class="pprice">
+                    <form action="/added/o/<%=painting._id%>" method = "POST" novalidate class="validated-form">
+                    
+                    <section>
+                        
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">Currency</label>
+                            <select class="form-select" name="currency" id="inputGroupSelect01">
+                              <option value="1">Indian Rupees</option>
+                              <option value="2">US Dollars</option>
+                            </select>
+                          </div>
+                        <div>   
+                            <p class="amtp" id="prodtype">Original</p>
+    
+                            <p class="amtg" id="ors">Rs <%=painting.priceo%></p>
+                            <p class="amtg" id="odol">$ <%=painting.dolpriceo%></p>
+                            
+                        </div>
+                   
+                            <input class="form-control" type="hidden" id="num" name="num" value="1" step="1" required>
+                            <div id="cartbtn3">
+                            <% if(!same){%>
+                                <button type="submit" class="addbutt ">ADD Original to Cart</button>
+                            <%}else{%>
+                                <%if(painting.original==0){%>
+                                    <button type="submit" class="addbutt">ADD Original to Cart</button>
+                                <%}else{%>
+                                    <div class="incart">
+                                         <a href="/order">Original in Cart</a>
+
+                                    </div>
+                                 <%}%>
+                            <%}%>
+                            </div>
+                 
+                           </form> 
+                 
+                    </section>
+                    
+                    
+                    
+                    <%if(painting.copy==1){%>
+                        <section>
+                            <form action="/added/<%=painting._id%>" method = "POST" novalidate class="validated-form">
+                                <input class="form-control" type="hidden" id="prcurrency" name="currency" value="1" step="1" hidden>
+                            
+                            <div>
+                                <p class="amtp" id="prodtypepr">Copy</p>
+        
+                                <p class="amtg" id="orspr">Rs <%=painting.pricec%></p>
+                                <p class="amtg" id="odolpr">$ <%=painting.dolpricec%></p>
+                                
+                            </div>
+                                <div>
+                                    <div id="cartbtn1">
+                                    <input class="form-control" type="hidden" id="num" name="num" value="1" step="1" required>
+                                    <h5>Quantity</h5>
+
+                                    <div class="stepbtn">
+                                        <div id="decr">-</div>
+                                        <input type="number" step="1" value="1" min="1" max="20" id="numb" value="1" name="amt" class="inp" readonly>
+                                        <div id="incr">+</div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div id="cartbtn2">
+                                <% if((!same)){%>
+                                 <button type="submit" class="addbutt">ADD Prints To Cart</button>
+                                 <%}else{%>
+                                     <%if(painting.prints==0){%>
+                                     <button type="submit" class="addbutt">ADD Prints to Cart</button>
+                                 <%}else{%>
+                                        <div class="incart">
+                                            <a href="/order">Prints in Cart</a>
+
+                                        </div>
+                                  <%}%>
+                                  <%}%>
+                                
+                                </div>
+                               </form> 
+    
+                        </section>
+                        
+                        <%}%>
+
+                   
+           
+                </div>
+                
+           
+           </div>
+           
+
+        </div>
+    </div>
+    <script>
+    const timg1 =  document.getElementById("timg1");
+const timg2 =  document.getElementById("timg2");
+const timg3 =  document.getElementById("timg3");
+
+
+const bimg1 =  document.getElementById("bimg1");
+const bimg2 =  document.getElementById("bimg2");
+const bimg3 =  document.getElementById("bimg3");
+
+bimg1.onclick = function() {showimg1()};
+  function showimg1() {
+      timg1.style.display="flex";
+      bimg1.style.boxShadow="-1px 4px 22px 12px rgba(214,136,201,0.75)";
+    bimg2.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+    bimg3.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+
+      timg2.style.display="none";
+      timg3.style.display="none";
+
+  }  
+  bimg2.onclick = function() {showimg2()};
+  function showimg2() {
+    timg2.style.display="flex";
+    bimg1.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+    
+    bimg2.style.boxShadow="-1px 4px 22px 12px rgba(214,136,201,0.75)";
+    bimg3.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+
+      timg1.style.display="none";
+      timg3.style.display="none";
+
+  }  
+  bimg3.onclick = function() {showimg3()};
+  function showimg3() {
+    timg3.style.display="flex";
+    bimg1.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+    
+    bimg3.style.boxShadow="-1px 4px 22px 12px rgba(214,136,201,0.75)";
+    bimg2.style.boxShadow="-1px 4px 22px -200px rgba(214,136,201,0.75)";
+      
+    timg2.style.display="none";
+      timg1.style.display="none";
+
+  }  
+  const currencyselect=document.getElementById("inputGroupSelect01");
+  const ors=document.getElementById("ors");
+  const orspr=document.getElementById("orspr");
+
+  const odol=document.getElementById("odol");
+  const odolpr=document.getElementById("odolpr");
+  const cartbtn1=document.getElementById("cartbtn1");
+  const cartbtn2=document.getElementById("cartbtn2");
+  const cartbtn3=document.getElementById("cartbtn3");
+  const prinputcur=document.getElementById("prcurrency");
+
+
+  const prodtype=document.getElementById("prodtype");
+  const prodtypepr=document.getElementById("prodtypepr");
+
+    currencyselect.selectedIndex="2";
+
+
+
+  currencyselect.onclick = function() {selectcur()};
+  function selectcur(){
+      const currency = currencyselect.selectedIndex;
+        if(currency==0){
+            prinputcur.setAttribute("value",1);
+            
+            prodtype.style.display="block";
+           cartbtn1.style.display="flex";
+           cartbtn2.style.display="block";
+           cartbtn3.style.display="block";
+            prodtypepr.style.display="block";
+            ors.style.display="block";
+            orspr.style.display="block";
+            odol.style.display="none";
+            odolpr.style.display="none";
+        }
+        else if(currency==1){
+            prinputcur.setAttribute("value",2);
+            ors.style.display="none";
+            cartbtn1.style.display="flex";
+           cartbtn2.style.display="block";
+           cartbtn3.style.display="block";
+            orspr.style.display="none";
+            prodtype.style.display="block";
+            prodtypepr.style.display="block";
+            odol.style.display="block";
+            odolpr.style.display="block";
+
+        }
+        else{
+            ors.style.display="none";
+            orspr.style.display="none";
+            odol.style.display="none";
+            odolpr.style.display="none";
+        }
+      console.log(currency);
+  }
+
+
+        const numb=document.getElementById("numb");
+        const inc = document.getElementById("incr");
+        const min=1;
+        const max=20;
+        const dec = document.getElementById("decr");
+        dec.onclick = function() {decval()};
+        inc.onclick = function() {incval()};
+        function decval(){
+            const value = numb.getAttribute("value");
+            const nval = parseInt(value)-1;
+            
+            if(nval>=min&&nval<=max){
+                numb.setAttribute("value",nval);
+
+            }
+            console.log(value,nval);
+
+        }
+        function incval(){
+            const value = numb.getAttribute("value");
+            const nval = parseInt(value)+1;
+            
+            if(nval>=min&&nval<=max){
+                numb.setAttribute("value",nval);
+
+            }
+            console.log(value,nval);
+
+        }
+
+
+       
+    </script>
+
+ 

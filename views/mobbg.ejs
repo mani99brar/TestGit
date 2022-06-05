@@ -1,0 +1,82 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">Change Mob Bg</h1>
+        </div>
+      </div>
+ 
+    <form action="/mobbg" method = "POST" novalidate class="validated-form  addbgadmin">
+
+        <div class="mb-3">
+            <label class="form-label"  for="title">Background 1</label>
+            <input class="form-control" type="text" id="title" name="backg[bg1]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label"  for="title">Background 2</label>
+            <input class="form-control" type="text" id="title" name="backg[bg2]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="title">Background 3</label>
+            <input class="form-control" type="text" id="title" name="backg[bg3]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="title">Background 4</label>
+            <input class="form-control" type="text" id="title" name="backg[bg4]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="title">Show Bg 1</label>
+            <input class="form-control" type="text" id="title" name="backg[sbg1]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="title">Show Bg 2</label>
+            <input class="form-control" type="text" id="title" name="backg[sbg2]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="title">Show Bg3</label>
+            <input class="form-control" type="text" id="title" name="backg[sbg3]" required>
+            
+
+            <div class="valid-feedback">
+                Looks Good
+            </div>
+        </div>
+        <div class="mb-3">
+             <button class="btn btn-success">Change</button>
+    
+        </div>
+        
+    </form>
+</div>

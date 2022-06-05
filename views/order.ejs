@@ -1,0 +1,249 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="orderbgg">
+
+    <div class="mt-5">
+        <div class="marcon">
+            <h1 style="font-size: 4rem;" class="mar califont">Your Cart</h1>
+            <!-- <div class="changecol">
+
+            </div> -->
+            <!-- <div class="top"></div>
+            <div class="right"></div>
+            <div class="left"></div>
+            <div class="bot"></div> -->
+
+        </div>
+        
+        
+    </div>
+    
+    <div class="empcart">
+        <div>
+            <button class="addbutt"><a href="/showcase">GO Shop</a></button>
+        </div>
+        <%if(num>0){%>
+        <div>
+            <form action="/order/emptycart/" method = "POST" novalidate class="validated-form emptyform">
+                <button type="submit" class="addbutt">Empty Cart</button>
+            </form>
+        </div>
+        <%}%>
+    </div>
+    
+    <div class="gallery" id="ordergal">
+        <div class="con">
+           
+            <form action="/order/delivery" method = "POST"  novalidate class="validated-form orderform">
+                <% if(num>1){ %>
+                <!-- <div class="orderbtns">
+                <div class="totalamt">
+                    <h3>Total</h3>
+                    <p><%=total%></p>
+                </div>
+                </div> -->
+                <div class="check califont">
+                    <div class="checkl">
+                        <h2>Items</h2>
+                    </div>
+                    <div class="checkm">
+                        <h2>Quantity</h2>
+                    </div>
+                    <div class="checkr">
+                        <h2>Total</h2>
+                    </div>
+                </div>
+                <div class="paintingorder">       
+                <% for(let p of order){ %>
+                <div class="orderhold">
+                    <div class="orderleft" >
+                        <img src="<%=p.image1%>" class="card-img-top" alt="...">
+                    </div>
+                    <div class="ordermid">
+                        
+                            <% if(p.original==1){%>
+                                <div>
+                                    <p>1</p>
+                                    <p>Original</p>   
+                                </div>
+                             <%}else{%>
+                                <% if(p.prints==1){%>
+                                <div>
+                                    <p><%=p.prints%></p>
+                                    
+
+                                    <p> Print</p>                                    
+                                </div>
+                                <%}else{%>
+                                    <div>
+                                        
+                                        <p><%=p.prints%></p>                                    
+                                        <p> Prints</p>
+                                    </div>
+                                <%}%>
+                                <%}%>
+
+                        </div>
+                    <div class="orderright">
+                        <% if(p.original==1){%>
+                            <%if(currency==1){%>
+                            <p>Rs<%=p.priceo%></p>
+                            <%}else{%>
+                                <p>$<%=p.dolprico%></p>
+                            <%}%>
+                        <%}else{%>
+                            <%if(currency==1){%>
+                                 <%let temp = p.pricec*p.prints%>
+                                <p>Rs<%=temp%></p>
+                                
+                                <%}else{%>
+                                <%let temp = p.dolpricec*p.prints%>
+                                <p>$<%=temp%></p>
+                                    
+                                <%}%>
+                        
+                        <%}%>
+                    
+                    </div>
+                     </div>
+                 <% } %>
+                 <div class="ordertotal">
+                     <div></div>
+                     <div class="totl">
+                         <h2>Total</h2>
+                     </div>
+                     <div class="totr">
+                        <h2><%=total%></h2>
+                     </div>
+                 </div>
+                 <div class="orderbtn">
+                           
+                    <div class="orderbtnl"></div>
+                    <div class="orderbtnr">
+                        <button type="submit" class="addbutt">Place Order</button>    
+                    </div>
+              
+            </div>
+                </div>
+                 <%}else{%>    
+           
+                    <% if(num==1){%>
+                        <div class="check califont">
+                            <div class="checkl">
+                                <h2>Items</h2>
+                            </div>
+                            <div class="checkm">
+                                <h2>Quantity</h2>
+                            </div>
+                            <div class="checkr">
+                                <h2>Total</h2>
+                            </div>
+                        </div>
+                        <div class="orderhold">
+                            <div class="orderleft" >
+                                <img src="<%=order.image1%>" class="card-img-top" alt="...">
+                            </div>
+                            <div class="ordermid">
+                                
+                                    <% if(order.original==1){%>
+                                        <div>
+                                            <p>1</p>
+                                            <p>Original</p>
+                                        </div>
+                                    <%}else{%>
+                                        <% if(order.prints==1){%>
+                                        <div>
+                                            <p><%=order.prints%></p>
+                                            <p>Print</p>                                    
+                                         
+                                        </div>
+                                        <%}else{%>
+                                            <div>
+                                                <p><%=order.prints%></p>
+                                                <p>Prints</p>                                    
+                                            </div>
+                                        <%}%>
+                                       <%}%>
+
+                                </div>
+                            <div class="orderright">
+                                <% if(order.original==1){%>
+                                <%if(currency==1){%>
+                                    <p>Rs <%=order.priceo%></p>
+                                <%}else{%>
+                                    <p>$<%=order.dolpriceo%></p>
+                                <%}%>
+                                <%}else{%>
+                                <%if(currency=="1"){%>
+                                    <%let temp = order.pricec*order.prints%>
+                                    <p>Rs <%=temp%></p>
+
+                                <%}else{%>
+                                    <%let temp = order.dolpricec*order.prints%>
+                                    <p>$ <%=temp%></p>
+
+                                <%}%>
+                                
+                                <%}%>
+                            
+                            </div>
+                             </div>
+                             <div class="ordertotal">
+                                <div></div>
+                                <div class="totl">
+                                    <h2>Total</h2>
+                                </div>
+                                <div class="totr">
+                                   <h2><%=total%></h2>
+                                </div>
+                            </div>
+                        <div class="orderbtn">
+                           
+                                <div class="orderbtnl"></div>
+                                <div class="orderbtnr">
+                                    <button type="submit" class="addbutt">Place Order</button>    
+                                </div>
+                          
+                        </div>
+                        <!-- <div class="orderbtns">
+                        <div class="totalamt">
+                            <h3>Total</h3>
+                            <p><%=total%></p>
+                        </div>
+                        </div>
+                <div class="paintingorder">
+                        
+                        <div class="cardholder">
+                            <div class="card" >
+                                <img src="<%=order.image1%>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=order.title%></h5>
+                                     <p class="card-text"><%=order.price%></p>
+                                     <% if(order.original==1){%>
+                                        <p>Original</p>
+                                        <p><%=order.priceo%></p>
+                                    <%}else{%>
+                                        <p><%=order.prints%></p>
+                                        <p><%=order.pricec%> per each</p>
+                                     <%}%>
+                                 </div>
+                            </div>         
+                        </div>
+                    </div>
+         -->
+
+                    <% }else{ %>
+                        <div class="empty">
+                            <h1>Oops Cart is Empty!</h1>
+                        </div>
+                    <%}%>
+                    <%}%>
+                </div>
+                
+            </form> 
+
+            
+        </div>
+        
+    </div>
+    
+</div>

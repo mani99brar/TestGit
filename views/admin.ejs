@@ -1,0 +1,88 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="adminpannel adminbg">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 style="font-size: 4rem;" class="mar califont">ADMIN</h1>
+            </div>
+          </div>
+          <%if(size>0){%>
+            <h1 style="color:#00ff70 ;">YOU have new ORDERS</h1>
+            <%}%>
+          <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/orders">Check Orders</a>
+        </button>
+              
+
+
+          <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/addblog">Add Blog</a>
+        </button>
+        
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/deleteblog">Delete Blog</a>
+        </button>
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/addpainting">Add Painting</a>
+        </button>
+        
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/deletepainting">Delete Painting</a>
+        </button>
+        
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/pcbg">Change PC Bg</a>
+        </button>
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/mobbg">Change Phonr Bg</a>
+        </button>
+        <button type="button" class="btn btn-primary adminbt">
+            <a href="/admin/about">Add About</a>
+        </button>
+        
+    </div>
+    <!-- <div class="con">
+        <form action="/showcase" method = "POST" novalidate class="validated-form">
+
+            <div class="mb-3">
+                <label class="form-label"  for="title">TITLE</label>
+                <input class="form-control" type="text" id="title" name="product[title]" required>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="image">Image Url</label>
+                <input class="form-control" type="text" id="image" name="product[image]" required>
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Price</label>
+        
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="product[price]" required>
+                    <div class="valid-feedback">
+                        Looks Good
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" required type="text" id="description" name="product[description]"></textarea> 
+                <div class="valid-feedback">
+                    Looks Good
+                </div>
+            </div>
+            <div class="mb-3">
+                 <button class="btn btn-success">Add Product</button>
+        
+            </div>
+            
+        </form>
+    </div> -->

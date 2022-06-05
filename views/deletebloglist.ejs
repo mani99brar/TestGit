@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate')%>
+<div class="adminpannel adminbg">
+    <div class="mt-5">
+    
+        <div class="marcon bgmar">
+            <h1 style="font-size: 4rem;" class="mar califont">Delete Blogs</h1>
+        </div>
+      </div>
+ 
+   <%if(size=>1){%>
+        <%for(b of blog){%>
+            <div class="dbglist">
+                <h3><%=b.title%></h3>
+                <p><%=b.date%></p>
+            <form action="/deleteblog/<%=b._id%>" method = "POST" novalidate class="validated-form">
+                <button class="btn btn-success">Delete</button>
+            </form>
+            </div>
+        <%}%>
+    <%}%>
+    <%if(size==0){%>
+        <div class="dbglist">
+            <h3>NO BLOGS ON THIS DATE!</h3>
+        </div>
+    <%}%>
+</div>

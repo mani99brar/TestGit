@@ -1,0 +1,30 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="adminpannel adminbg">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 style="font-size: 4rem;" class="mar califont">About</h1>
+            </div>
+          </div>
+          
+        <form action="/addabout" method = "POST" novalidate class="validated-form  addbgadmin">
+
+                <div class="mb-3">
+                    <label class="form-label"  for="title">Add Para</label>
+                    <input class="form-control" type="text" id="title" name="para" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add</button>
+
+             </form>   
+          
+          <form action="/addimg" method = "POST" novalidate class="validated-form  addbgadmin">
+
+            <div class="mb-3">
+                <label class="form-label"  for="title">Update Img</label>
+                <input class="form-control" type="text" id="title" name="img" required>
+            </div>
+            <button class="btn btn-success">Update</button>
+         </form>  
+    </div>
+    

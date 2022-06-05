@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate')%>
+<div id="wrapper" class="cobg">
+    <div class="con">
+        <div class="mt-5">
+    
+            <div class="marcon bgmar">
+                <h1 class="mar califont">Your Order</h1>
+            </div>
+          </div>
+        <div class="orderdet">
+            <h3><%=corder.date%></h3>
+            <h3>Order ID : <%=corder._id%></h3>
+            <h3>Name : <%=corder.name%></h3>
+
+                <%for(let i=0;i<size;i++){%>
+            <div>
+                    <h5><%=corder.title[i]%></h5>
+                    <%if(corder.original[i]==1){%>
+                        <p><%=corder.original[i]%> Original</p>
+                        <p><%=corder.price[i]%></p>
+                    <%}else{%>
+                    <p><%=corder.prints[i]%> Prints</p>
+                    <p><%=corder.price[i]%> each</p>
+                    <%}%>
+            </div>
+            
+            <%}%>
+            <div>
+            <h3>Total</h3>
+            <%if(corder.currency==1){%>
+            <h3>Rs <%=corder.total%></h3>
+            <%}else{%>
+            <h3>$ <%=corder.total%></h3>
+            <%}%>
+            </div>
+        </div>
+    </div>
+</div>
