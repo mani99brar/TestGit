@@ -69,7 +69,9 @@ mongoose.connect('mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongo
     .catch(err=>{
         console.log("ERROR");
     })
-app.listen(3001,()=>{
+ 
+const port = process.env.PORT || 3001;    
+app.listen(port,()=>{
         console.log("Serving on 3001")
     });
 
