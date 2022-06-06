@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -24,7 +23,6 @@ const flash = require('connect-flash');
 const cart = require('./models/cart');
 const itemdelete = require('./utils/orderdelete');
 const fs = require('fs');
-// const MongoStore = require('connect-mongo');
 
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
@@ -34,7 +32,6 @@ app.set('views',path.join(__dirname,'views'));
 
 const sessionConfig = {
     secret:'holllla',
-    // store: MongoStore.create({ mongoUrl: 'mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongodb.net/?retryWrites=true&w=majority' }),
     resave:false,
     saveUninitialized:true,
     cookie:{
@@ -71,9 +68,7 @@ mongoose.connect('mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongo
     .catch(err=>{
         console.log("ERROR");
     })
- 
-const port = process.env.PORT || 3001;    
-app.listen(port,()=>{
+app.listen(3001,()=>{
         console.log("Serving on 3001")
     });
 
@@ -98,12 +93,10 @@ app.listen(port,()=>{
     const place = 'home';
     const pcbg= await pcdata.findOne({});
     const mobbg = await mobdata.findOne({});
-    console.log(mobbg);
     const num = req.session.num;
     const paintings = await product.find({}).limit(1);
     const a = await blogs.find().sort({$natural:-1}).limit(1);
   
-    console.log(req.session);
     res.render('home',{paintings,a,num,place,mobbg,pcbg,abt,abtsize,myimg});
 })    
 app.get('/adminlogin0153130269',(req,res)=>{
@@ -119,7 +112,6 @@ app.get('/showcase',async (req,res)=>{
     const place = 'showcase';
     const num = req.session.num;
     const paintings = await product.find({}).sort({$natural:-1});
-    console.log(paintings);
     res.render('showcase',{paintings,num,place});
 })    
 
@@ -128,7 +120,6 @@ app.get('/order/delivery',async (req,res)=>{
     const currency=req.session.currency;
     const num = req.session.num;
     const paintings = req.session.items;
-    console.log(paintings);
     const total = req.session.total;
     // console.log(total);
     res.render('delivery',{num,place,paintings,total,currency});
@@ -206,7 +197,6 @@ app.get('/blog/:id/',async (req,res)=>{
             const bsize=b.length;
             // console.log(t4);
             // console.log("*******");
-            console.log(t);
             // res.send("AAA");
             res.render("showblog",{b,num,place,bsize,prevblog,size,curpage,pages});
         }).limit(4);
@@ -302,7 +292,6 @@ app.get('/admin/deleteblog',(req,res)=>{
 
 app.get('/showcase/:id/',async (req,res)=>{
 
-    console.log("**************");
     const num = req.session.num;
     const place = 'showcase';
     const painting = await product.findById(req.params.id);
@@ -346,7 +335,6 @@ app.get('/showcase/:id/',async (req,res)=>{
     }
 
     
-    console.log(painting);
     res.render('show',{painting,num,place,same});
 
 })
@@ -378,7 +366,6 @@ app.get('/order',async (req,res)=>{
     const total = req.session.total;
     const currency = req.session.currency;
     const place = 'order';
-    console.log(currency);
     const order = req.session.items;
     const num = req.session.num;
  
@@ -392,7 +379,6 @@ app.get('/order/confirm/:id',async (req,res)=>{
     const place = 'order';
     const corder = await order.findById(req.params.id);
     const num = req.session.num; 
-    console.log(corder);
     const size=corder.title.length;
     res.render('completedorder',{size,num,place,corder});
 
@@ -412,12 +398,10 @@ app.get('/admin/deletepainting',async (req,res)=>{
 
 })
 app.get('/admin/query',async (req,res)=>{
-  
     const place = 'order';
     const num = req.session.num; 
     const q = await query.find({});
     const size=q.length;
-    console.log(q);
     if(req.session.admin=="ilovemilkybar"){
         // res.send("AAA");
         res.render('adminqueries',{num,place,q,size});
@@ -452,7 +436,7 @@ app.get('/vieworder/:number',async (req,res)=>{
 app.post('/pcbg',async (req,res)=>{
     const bg = req.body.backg;
     const dbg = await pcdata.find({});
-    // await dbg[0].remove({});
+    await dbg[0].remove({});
     const fbg = new pcdata(bg);
     await fbg.save();
     res.redirect("/");
@@ -464,7 +448,7 @@ app.post('/pcbg',async (req,res)=>{
 app.post('/mobbg',async (req,res)=>{
     const bg = req.body.backg;
     const dbg = await mobdata.find({});
-    // await dbg[0].remove({});
+    await dbg[0].remove({});
     const fbg = new mobdata(bg);
     await fbg.save();
     res.redirect("/");
@@ -506,7 +490,7 @@ app.post('/addimg',async(req,res)=>{
     const pp = new abtimg();
     pp.img=im;
     const t = await abtimg.find({});
-    // await t[0].remove();
+    await t[0].remove();
     console.log(pp);
     await pp.save();
     res.redirect("/");
@@ -791,7 +775,6 @@ app.post('/added/o/:id/',async (req,res)=>{
 
     req.session.total=pay;
     // console.log("ADDED ORIGINAL");
-     console.log(painting);
 
 
 
