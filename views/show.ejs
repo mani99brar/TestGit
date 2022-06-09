@@ -52,7 +52,7 @@
                               <option value="2">US Dollars</option>
                             </select>
                           </div>
-                        <div>   
+                        <div id="orignalp">   
                             <p class="amtp" id="prodtype">Original</p>
     
                             <p class="amtg" id="ors">Rs <%=painting.priceo%></p>
@@ -80,7 +80,7 @@
                  
                     </section>
                     
-                    
+                    <input id="type" hidden value="<%=painting.copy%>">
                     
                     <%if(painting.copy==1){%>
                         <section>
@@ -182,65 +182,87 @@ bimg1.onclick = function() {showimg1()};
       timg1.style.display="none";
 
   }  
+
   const currencyselect=document.getElementById("inputGroupSelect01");
   const ors=document.getElementById("ors");
   const orspr=document.getElementById("orspr");
-
   const odol=document.getElementById("odol");
   const odolpr=document.getElementById("odolpr");
+  const type=document.getElementById("type");
+
+  const v = type.getAttribute("value");
+  if(v==1){
   const cartbtn1=document.getElementById("cartbtn1");
+  const prodtype=document.getElementById("prodtype");
+  const prodtypepr=document.getElementById("prodtypepr");  
   const cartbtn2=document.getElementById("cartbtn2");
+
+  }
+  
   const cartbtn3=document.getElementById("cartbtn3");
   const prinputcur=document.getElementById("prcurrency");
-
-
-  const prodtype=document.getElementById("prodtype");
-  const prodtypepr=document.getElementById("prodtypepr");
-
+  const originalp=document.getElementById("originalp");
     currencyselect.selectedIndex="2";
-
-
-
   currencyselect.onclick = function() {selectcur()};
   function selectcur(){
       const currency = currencyselect.selectedIndex;
         if(currency==0){
-            prinputcur.setAttribute("value",1);
-            
             prodtype.style.display="block";
+
+            if(v==1){
            cartbtn1.style.display="flex";
-           cartbtn2.style.display="block";
-           cartbtn3.style.display="block";
             prodtypepr.style.display="block";
+           cartbtn2.style.display="block";
+            }
+           cartbtn3.style.display="block";
             ors.style.display="block";
-            orspr.style.display="block";
+            if(orspr){
+                orspr.style.display="block";
+            }
             odol.style.display="none";
+            if(odolpr){
             odolpr.style.display="none";
+
+            }
         }
         else if(currency==1){
-            prinputcur.setAttribute("value",2);
-            ors.style.display="none";
+            if(v==1){
             cartbtn1.style.display="flex";
-           cartbtn2.style.display="block";
-           cartbtn3.style.display="block";
-            orspr.style.display="none";
-            prodtype.style.display="block";
+                cartbtn2.style.display="block";
             prodtypepr.style.display="block";
+            prinputcur.setAttribute("value",2);
+            }
+            ors.style.display="none";
+            
+           cartbtn3.style.display="block";
+           if(orspr){
+            orspr.style.display="none";
+
+           }
+            prodtype.style.display="block";
             odol.style.display="block";
+           if(odolpr){
             odolpr.style.display="block";
+           }
 
         }
         else{
-            ors.style.display="none";
+            if(orspr){
             orspr.style.display="none";
+
+            }
+            ors.style.display="none";
             odol.style.display="none";
+            if(odolpr){
             odolpr.style.display="none";
+
+            }
         }
       console.log(currency);
   }
 
-
-        const numb=document.getElementById("numb");
+        if(orspr){
+            const numb=document.getElementById("numb");
         const inc = document.getElementById("incr");
         const min=1;
         const max=20;
@@ -269,6 +291,8 @@ bimg1.onclick = function() {showimg1()};
             console.log(value,nval);
 
         }
+        }
+        
 
 
        

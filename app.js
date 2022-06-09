@@ -402,10 +402,12 @@ app.get('/admin/deletepainting',async (req,res)=>{
     const place = 'order';
     // const corder = await order.findById(req.params.id);
     const num = req.session.num; 
+    const p = await product.find({});
     // console.log(corder);
     // const size=corder.title.length;
+    console.log(p);
     if(req.session.admin=="ilovemilkybar"){
-        res.render('deletepainting',{num,place});
+        res.render('deletepainting',{num,place,p});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
     }
@@ -642,8 +644,10 @@ app.post('/blog/delete',async(req,res)=>{
 
 app.post('/painting/delete',async (req,res)=>{
     const name = req.body.name;    
-    const painting = await product.find({title:name});
+    const painting = await product.find({_id:name});
     const size = painting.length;
+    console.log("***********");
+    console.log(painting);
     if(size==1){
         await painting[0].remove();
     }
