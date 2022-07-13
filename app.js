@@ -24,7 +24,7 @@ const flash = require('connect-flash');
 const cart = require('./models/cart');
 const itemdelete = require('./utils/orderdelete');
 const fs = require('fs');
-// const MongoStore = require('connect-mongo');
+
 
 app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
@@ -34,7 +34,6 @@ app.set('views',path.join(__dirname,'views'));
 
 const sessionConfig = {
     secret:'holllla',
-    // store: MongoStore.create({ mongoUrl: 'mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongodb.net/?retryWrites=true&w=majority' }),
     resave:false,
     saveUninitialized:true,
     cookie:{
@@ -64,7 +63,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-mongoose.connect('mongodb+srv://hiverarts:gN1fXP6Ayj27z2hH@hiverarts.i55tb.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('link')
     .then(()=>{
         console.log("CONNECTED to DB");
     })
@@ -81,8 +80,7 @@ app.listen(port,()=>{
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'hiverarts@gmail.com',
-          pass: 'ilovemilkybar'
+          user: ''
         }
       });
 
@@ -226,7 +224,7 @@ app.get('/admin',async(req,res)=>{
     const neworders = await order.find({status:1});
     const size = neworders.length;
     const num = req.session.num;
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('admin',{place,num,size});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -238,7 +236,7 @@ app.get('/admin/about',async(req,res)=>{
     const place = 'admin';
     const num = req.session.num;
    
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('adminabout',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -250,7 +248,7 @@ app.get('/admin/about',async(req,res)=>{
 app.get('/admin/addblog',(req,res)=>{
     const place = 'admin';
     const num = req.session.num;
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('addblog',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -261,7 +259,7 @@ app.get('/admin/addblog',(req,res)=>{
 app.get('/admin/pcbg',(req,res)=>{
     const place = 'admin';
     const num = req.session.num;
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('pcbg',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -271,7 +269,7 @@ app.get('/admin/pcbg',(req,res)=>{
 app.get('/admin/mobbg',(req,res)=>{
     const place = 'admin';
     const num = req.session.num;
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('mobbg',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -281,7 +279,7 @@ app.get('/admin/addpainting',(req,res)=>{
     const num = req.session.num;
 
     const place = 'admin';
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('addpainting',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -290,7 +288,7 @@ app.get('/admin/addpainting',(req,res)=>{
 app.get('/admin/deleteblog',(req,res)=>{
     const place = 'admin';
     const num = req.session.num;
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('deleteblog',{place,num});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -361,7 +359,7 @@ app.get('/admin/orders',async (req,res)=>{
     const pendingorders = await order.find({status:2});
 
     // res.send(neworders);
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('adminorder',{num,place,neworders,completedorders,pendingorders});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -406,7 +404,7 @@ app.get('/admin/deletepainting',async (req,res)=>{
     // console.log(corder);
     // const size=corder.title.length;
     console.log(p);
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         res.render('deletepainting',{num,place,p});
     }else{
         res.send("WRONG PASS TRY AGAIN!");
@@ -420,7 +418,7 @@ app.get('/admin/query',async (req,res)=>{
     const q = await query.find({});
     const size=q.length;
     console.log(q);
-    if(req.session.admin=="ilovemilkybar"){
+    if(req.session.admin==""){
         // res.send("AAA");
         res.render('adminqueries',{num,place,q,size});
     }else{
